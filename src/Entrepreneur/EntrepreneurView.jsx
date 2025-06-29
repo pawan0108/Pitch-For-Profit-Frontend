@@ -13,7 +13,7 @@ function EntrepreneurView() {
 
   const fetchEnps = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/enp/all');
+      const res = await axios.get('https://pitch-for-profit-backend.onrender.com/enp/all');
       setData(res.data);
     } catch (error) {
       console.error('Error fetching entrepreneurs:', error);
@@ -23,7 +23,7 @@ function EntrepreneurView() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this record?")) {
       try {
-        await axios.delete(`http://localhost:8000/enp/${id}`);
+        await axios.delete(`https://pitch-for-profit-backend.onrender.com/enp/${id}`);
         fetchEnps();
       } catch (error) {
         console.error('Error deleting entrepreneur:', error);
@@ -39,7 +39,7 @@ function EntrepreneurView() {
       fetchEnps(); // If empty, load all
     } else {
       try {
-        const res = await axios.get(`http://localhost:8000/enp/search?query=${value}`);
+        const res = await axios.get(`https://pitch-for-profit-backend.onrender.com/enp/search?query=${value}`);
         setData(res.data);
       } catch (error) {
         console.error('Error searching entrepreneurs:', error);

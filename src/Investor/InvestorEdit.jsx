@@ -25,7 +25,7 @@ function InvestorEdit() {
     });
   
     useEffect(() => {
-      axios.get(`http://localhost:8000/investor/${id}`)
+      axios.get(`https://pitch-for-profit-backend.onrender.com/investor/${id}`)
         .then((res) => {
           const data = res.data;
           data.regdate = data.regdate?.split('T')[0];
@@ -42,7 +42,7 @@ function InvestorEdit() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        await axios.put(`http://localhost:8000/investor/${id}`, form);
+        await axios.put(`https://pitch-for-profit-backend.onrender.com/investor/${id}`, form);
         alert("Investor updated successfully!");
         navigate("/Admin/view");
       } catch (err) {

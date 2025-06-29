@@ -45,10 +45,10 @@ const EntrepreneurDashboard = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const pitchRes = await axios.get(`http://localhost:8000/api/pitches/stats/${entrepreneurId}`);
-        const meetingRes = await axios.get(`http://localhost:8000/api/meetings/monthly/${entrepreneurId}`);
-        const pitchMonthlyRes = await axios.get(`http://localhost:8000/api/pitches/monthly/${entrepreneurId}`);
-        const categoryStatsRes = await axios.get(`http://localhost:8000/api/pitches/category-stats/${entrepreneurId}`);
+        const pitchRes = await axios.get(`https://pitch-for-profit-backend.onrender.com/api/pitches/stats/${entrepreneurId}`);
+        const meetingRes = await axios.get(`https://pitch-for-profit-backend.onrender.com/api/meetings/monthly/${entrepreneurId}`);
+        const pitchMonthlyRes = await axios.get(`https://pitch-for-profit-backend.onrender.com/api/pitches/monthly/${entrepreneurId}`);
+        const categoryStatsRes = await axios.get(`https://pitch-for-profit-backend.onrender.com/api/pitches/category-stats/${entrepreneurId}`);
   
         setStats({
           totalPitches: pitchRes.data?.totalPitches || 0,

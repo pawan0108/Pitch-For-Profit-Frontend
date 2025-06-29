@@ -15,7 +15,7 @@ const ShowAllMeetigs = () => {
 
   const fetchMeetings = async () => {
     try {
-      const res = await fetch("http://localhost:8000/api/meetings/all");
+      const res = await fetch("https://pitch-for-profit-backend.onrender.com/api/meetings/all");
       const data = await res.json();
       setMeetings(data);
     } catch (err) {

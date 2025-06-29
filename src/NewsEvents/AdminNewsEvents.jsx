@@ -19,7 +19,7 @@ const AdminNewsEvents = () => {
       formData.append("newsText", newsText);
       if (newsImage) formData.append("newsImage", newsImage);
 
-      await axios.post("http://localhost:8000/api/add-news", formData, {
+      await axios.post("https://pitch-for-profit-backend.onrender.com/api/add-news", formData, {
         headers: { "Content-Type": "multipart/form-data" },
         validateStatus: (status) => status < 500,
       });
@@ -44,7 +44,7 @@ const AdminNewsEvents = () => {
       formData.append("eventDescription", eventDescription);
       if (eventImage) formData.append("eventImage", eventImage);
 
-      await axios.post("http://localhost:8000/api/events", formData, {
+      await axios.post("https://pitch-for-profit-backend.onrender.com/api/events", formData, {
         headers: { "Content-Type": "multipart/form-data" },
         validateStatus: (status) => status < 500,
       });

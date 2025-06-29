@@ -15,9 +15,9 @@ function Login() {
     e.preventDefault();
   
     const endpoints = {
-      admin: "http://localhost:8000/admin/login",
-      investor: "http://localhost:8000/investor/login",
-      entrepreneur: "http://localhost:8000/entrepreneur/login"
+      admin: "https://pitch-for-profit-backend.onrender.com/admin/login",
+      investor: "https://pitch-for-profit-backend.onrender.com/investor/login",
+      entrepreneur: "https://pitch-for-profit-backend.onrender.com/entrepreneur/login"
     };
   
     if (!endpoints[userType]) {

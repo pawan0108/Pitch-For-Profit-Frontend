@@ -35,7 +35,7 @@ const SubmitPitch = () => {
                 console.log(pair[0] + ', ' + pair[1]);
             }
 
-            const res = await axios.post("http://localhost:8000/pitches", data);
+            const res = await axios.post("https://pitch-for-profit-backend.onrender.com/pitches", data);
             alert("✅ Pitch submitted successfully!");
             setFormData({
                 title: "",

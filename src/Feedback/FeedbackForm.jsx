@@ -60,7 +60,7 @@ const FeedbackForm = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8000/feedback', feedbackData);
+      const response = await axios.post('https://pitch-for-profit-backend.onrender.com/feedback', feedbackData);
       console.log('Feedback submitted successfully:', response.data);
       setSubmitted(true);
       setError('');

@@ -75,8 +75,8 @@ export default function AdminDashBoard() {
       try {
         // Fetching both stats and aggregation data at once
         const [statsRes, categoryRes] = await Promise.all([
-          axios.get("http://localhost:8000/api/admin/dashboard-stats"),
-          axios.get("http://localhost:8000/api/admin/stats"),
+          axios.get("https://pitch-for-profit-backend.onrender.com/api/admin/dashboard-stats"),
+          axios.get("https://pitch-for-profit-backend.onrender.com/api/admin/stats"),
         ]);
         console.log(stats)
         console.log("Stats Response:", statsRes.data);

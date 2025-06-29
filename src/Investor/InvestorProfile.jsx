@@ -22,7 +22,7 @@ const InvestorProfile = () => {
                     const id = storedInvestor._id;
                     console.log("Fetching investor with ID:", id);
                     // Always fetch fresh from backend, don't rely on localStorage
-                    const res = await axios.get(`http://localhost:8000/investor/${id}`);
+                    const res = await axios.get(`https://pitch-for-profit-backend.onrender.com/investor/${id}`);
                     
                     setInvestor(res.data);
                     setFormData(res.data);
@@ -65,7 +65,7 @@ const InvestorProfile = () => {
                 }
             });
 
-            const res = await axios.put(`http://localhost:8000/investor/${id}`, data); // ✅ No manual headers
+            const res = await axios.put(`https://pitch-for-profit-backend.onrender.com/investor/${id}`, data); // ✅ No manual headers
 
             setInvestor(res.data.investor);
             localStorage.setItem("investor", JSON.stringify(res.data.investor));

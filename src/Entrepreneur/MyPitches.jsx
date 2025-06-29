@@ -14,12 +14,12 @@ const MyPitches = () => {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/pitches/user/${user._id}`);
+      const res = await axios.get(`https://pitch-for-profit-backend.onrender.com/pitches/user/${user._id}`);
       setPitches(res.data);
 
       const allInvestorData = {};
       for (const pitch of res.data) {
-        const investorRes = await axios.get(`http://localhost:8000/investments/pitch/${pitch._id}`);
+        const investorRes = await axios.get(`https://pitch-for-profit-backend.onrender.com/investments/pitch/${pitch._id}`);
         allInvestorData[pitch._id] = investorRes.data;
       }
       setInvestorMap(allInvestorData);
@@ -33,12 +33,12 @@ const MyPitches = () => {
   }, []);
 
   const handleAccept = async (investmentId) => {
-    await axios.put(`http://localhost:8000/investments/accept/${investmentId}`);
+    await axios.put(`https://pitch-for-profit-backend.onrender.com/investments/accept/${investmentId}`);
     fetchData();
   };
 
   const handleCancel = async (investmentId) => {
-    await axios.delete(`http://localhost:8000/investments/${investmentId}`);
+    await axios.delete(`https://pitch-for-profit-backend.onrender.com/investments/${investmentId}`);
     fetchData();
   };
 
@@ -46,7 +46,7 @@ const MyPitches = () => {
   const handleDeletePitch = async (pitchId) => {
     if (window.confirm("Are you sure you want to delete this pitch?")) {
       try {
-        await axios.delete(`http://localhost:8000/pitches/${pitchId}`);
+        await axios.delete(`https://pitch-for-profit-backend.onrender.com/pitches/${pitchId}`);
         fetchData(); // Refresh data
       } catch (err) {
         console.error("Error deleting pitch:", err);
@@ -96,7 +96,7 @@ const MyPitches = () => {
                     <p>📈 <strong>Equity Offered:</strong> {pitch.equity}%</p>
                     {pitch.filePath && (
                       <div>
-                        📎 <a href={`http://localhost:8000/${pitch.filePath}`} target="_blank" rel="noopener noreferrer">
+                        📎 <a href={`https://pitch-for-profit-backend.onrender.com/${pitch.filePath}`} target="_blank" rel="noopener noreferrer">
                           View Pitch File
                         </a>
                       </div>

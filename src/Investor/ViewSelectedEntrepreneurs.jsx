@@ -15,7 +15,7 @@ const ViewSelectedEntrepreneurs = () => {
   useEffect(() => {
     const fetchInvestments = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/investments/investor/${investor._id}`);
+        const res = await axios.get(`https://pitch-for-profit-backend.onrender.com/investments/investor/${investor._id}`);
         const data = res.data;
         setRaisedPitches(data.filter(p => p.status === 'pending'));
         setApprovedPitches(data.filter(p => p.status === 'approved'));

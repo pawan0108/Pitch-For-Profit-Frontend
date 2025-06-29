@@ -18,19 +18,19 @@ function EnpManage() {
     }, [searchTerm, entrepreneurs]);
 
     const fetchEntrepreneurs = async () => {
-        const res = await axios.get('http://localhost:8000/entrepreneur/all');
+        const res = await axios.get('https://pitch-for-profit-backend.onrender.com/entrepreneur/all');
         setEntrepreneurs(res.data);
     };
 
     const updateStatus = async (id, isApproved, isActive) => {
-        await axios.patch(`http://localhost:8000/entrepreneur/status/${id}`, { isApproved, isActive });
+        await axios.patch(`https://pitch-for-profit-backend.onrender.com/entrepreneur/status/${id}`, { isApproved, isActive });
         fetchEntrepreneurs();
     };
 
     const deleteEntrepreneur = async (id) => {
         const confirmDelete = window.confirm("Are you sure you want to delete this entrepreneur?");
         if (confirmDelete) {
-            await axios.delete(`http://localhost:8000/entrepreneur/${id}`);
+            await axios.delete(`https://pitch-for-profit-backend.onrender.com/entrepreneur/${id}`);
             fetchEntrepreneurs();
         }
     };

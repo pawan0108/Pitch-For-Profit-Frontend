@@ -15,7 +15,7 @@ const EntrepreneurProfileView = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get(`http://localhost:8000/entrepreneur/${id}`);
+                const res = await axios.get(`https://pitch-for-profit-backend.onrender.com/entrepreneur/${id}`);
                 setEntrepreneur(res.data);
             } catch (err) {
                 console.error("Fetch error:", err);

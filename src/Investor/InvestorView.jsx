@@ -11,7 +11,7 @@ function InvestorView() {
   // Fetch all investors
   const fetchInvestors = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/investor/all');
+      const response = await axios.get('https://pitch-for-profit-backend.onrender.com/investor/all');
       setInvestors(response.data);
     } catch (error) {
       console.error("Error fetching investors:", error);
@@ -24,7 +24,7 @@ function InvestorView() {
       if (key.trim() === '') {
         fetchInvestors();
       } else {
-        const response = await axios.get(`http://localhost:8000/investor/search?query=${key}`);
+        const response = await axios.get(`https://pitch-for-profit-backend.onrender.com/investor/search?query=${key}`);
         setInvestors(response.data);
       }
     } catch (error) {
@@ -41,7 +41,7 @@ function InvestorView() {
     const confirmDelete = window.confirm("Are you sure you want to delete this investor?");
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:8000/investor/${id}`);
+        await axios.delete(`https://pitch-for-profit-backend.onrender.com/investor/${id}`);
         fetchInvestors(); // Refresh list
       } catch (error) {
         console.error("Error deleting investor:", error);

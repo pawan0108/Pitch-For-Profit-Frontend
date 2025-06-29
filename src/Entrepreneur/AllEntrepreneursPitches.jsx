@@ -21,14 +21,14 @@ const AllEntrepreneursPitches = () => {
     useEffect(() => {
         const fetchPitchesWithRaiseCount = async () => {
             try {
-                const res = await axios.get('http://localhost:8000/pitches');
+                const res = await axios.get('https://pitch-for-profit-backend.onrender.com/pitches');
                 const pitchesData = res.data;
 
                 // For each pitch, fetch its raiseCount from backend
                 const enrichedPitches = await Promise.all(
                     pitchesData.map(async (pitch) => {
                         try {
-                            const countRes = await axios.get(`http://localhost:8000/pitches/count/${pitch._id}`);
+                            const countRes = await axios.get(`https://pitch-for-profit-backend.onrender.com/pitches/count/${pitch._id}`);
                             console.log('PITCH COUNT:', pitch._id, '=>', countRes.data.count); // ✅ Correct scope
                             return { ...pitch, raiseCount: countRes.data.count };
                         } catch (err) {
@@ -46,28 +46,6 @@ const AllEntrepreneursPitches = () => {
 
         fetchPitchesWithRaiseCount();
     }, []);
-
-    // const fetchPitchesWithRaiseCount = async () => {
-    //     try {
-    //         const res = await axios.get('http://localhost:8000/pitches');
-    //         const pitchesData = await Promise.all(
-    //             res.data.map(async (pitch) => {
-    //                 try {
-    //                     const countRes = await axios.get(`http://localhost:8000/pitches/count/${pitch._id}`);
-    //                     console.log('PITCH COUNT:', pitch._id, '=>', countRes.data.count); // ✅ Correct scope
-    //                     return { ...pitch, raiseCount: countRes.data.count };
-    //                 } catch (countErr) {
-    //                     console.error('Error fetching raise count for pitch', pitch._id, countErr);
-    //                     return { ...pitch, raiseCount: 0 };
-    //                 }
-    //             })
-    //         );
-    //         setPitches(pitchesData);
-    //     } catch (err) {
-    //         console.error('Error fetching pitches:', err);
-    //     }
-    // };
-
 
     //   Filter
     const filteredPitches = pitches.filter(pitch => {
@@ -104,7 +82,7 @@ const AllEntrepreneursPitches = () => {
 
         try {
             setLoading(true);
-            await axios.post('http://localhost:8000/investments', payload);
+            await axios.post('https://pitch-for-profit-backend.onrender.com/investments', payload);
             alert('✅ Investment submitted successfully!');
             setSelectedPitch(null); // Close modal
             setErrorMsg('');
@@ -189,7 +167,7 @@ const AllEntrepreneursPitches = () => {
 
                                 {pitch.filePath && (
                                     <div className="mt-2">
-                                        📎 <a href={`http://localhost:8000/${pitch.filePath}`} target="_blank" rel="noopener noreferrer">
+                                        📎 <a href={`https://pitch-for-profit-backend.onrender.com/${pitch.filePath}`} target="_blank" rel="noopener noreferrer">
                                             View Pitch File
                                         </a>
                                     </div>

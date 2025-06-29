@@ -45,7 +45,7 @@ function InvestorRegistration() {
 
   // ✅ Submit if all good
   const user = { name, gender, address, country, state, city, fname, faddress, categories, mobile, email, regdate, password };
-  await axios.post('http://localhost:8000/investor', user);
+  await axios.post('https://pitch-for-profit-backend.onrender.com/investor', user);
   alert("Registration successful!");
   
 navigate('/login');

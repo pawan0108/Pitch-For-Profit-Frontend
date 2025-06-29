@@ -14,7 +14,7 @@ const NewsEventsTable = () => {
   // Fetch News
   const fetchNews = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/add-news"); // Ensure this API endpoint is correct
+      const res = await axios.get("https://pitch-for-profit-backend.onrender.com/api/add-news"); // Ensure this API endpoint is correct
       setNewsList(res.data);
     } catch (err) {
       console.error("Error fetching news:", err);
@@ -24,7 +24,7 @@ const NewsEventsTable = () => {
   // Fetch Events
   const fetchEvents = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/events"); // Adjust this API endpoint if needed
+      const res = await axios.get("https://pitch-for-profit-backend.onrender.com/api/events"); // Adjust this API endpoint if needed
       setEventList(res.data);
     } catch (err) {
       console.error("Error fetching events:", err);
@@ -35,7 +35,7 @@ const NewsEventsTable = () => {
   const handleDeleteNews = async (id) => {
     if (!window.confirm("Are you sure you want to delete this news item?")) return;
     try {
-      await axios.delete(`http://localhost:8000/api/add-news/${id}`);
+      await axios.delete(`https://pitch-for-profit-backend.onrender.com/api/add-news/${id}`);
       fetchNews();
     } catch (err) {
       console.error("Error deleting news:", err);
@@ -52,7 +52,7 @@ const NewsEventsTable = () => {
   const handleDeleteEvent = async (id) => {
     if (!window.confirm("Are you sure you want to delete this event?")) return;
     try {
-      await axios.delete(`http://localhost:8000/api/events/${id}`);
+      await axios.delete(`https://pitch-for-profit-backend.onrender.com/api/events/${id}`);
       fetchEvents();
     } catch (err) {
       console.error("Error deleting event:", err);

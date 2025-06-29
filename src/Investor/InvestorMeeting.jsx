@@ -7,7 +7,7 @@ export default function InvestorMeeting() {
 
   const fetchRequests = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:8000/api/meeting-requests-for-investor?investorid=${id}`);
+      const res = await axios.get(`https://pitch-for-profit-backend.onrender.com/api/meeting-requests-for-investor?investorid=${id}`);
       console.log("Fetched requests:", res.data);
       setRequests(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
@@ -18,7 +18,7 @@ export default function InvestorMeeting() {
 
   const handleDecision = async (id, decision) => {
     try {
-      const res = await fetch(`http://localhost:8000/api/meeting-request/${id}/${decision}`, {
+      const res = await fetch(`https://pitch-for-profit-backend.onrender.com/api/meeting-request/${id}/${decision}`, {
         method: 'POST',
       });
       if (res.ok) {

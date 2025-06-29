@@ -18,7 +18,7 @@ const InvestorDashboard = () => {
       }
 
       try {
-        const response = await fetch(`http://localhost:8000/api/investor-stats/${investorId}`);
+        const response = await fetch(`https://pitch-for-profit-backend.onrender.com/api/investor-stats/${investorId}`);
         const result = await response.json();
         console.log("✅ API Data:", result);
 

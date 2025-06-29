@@ -45,7 +45,7 @@ function EnpRegistration() {
 
     var user = { name, gender, address, country, state, city, fname, faddress, categories, mobile, email, regdate, password };
     console.log(user);
-    await axios.post('http://localhost:8000/api/enp', user);
+    await axios.post('https://pitch-for-profit-backend.onrender.com/api/enp', user);
     alert("Registration successful!");
 
       // 👇 Redirect to login

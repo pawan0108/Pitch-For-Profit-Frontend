@@ -17,7 +17,7 @@ const EntrepreneurProfile = () => {
                 const storedEnp = JSON.parse(localStorage.getItem("entrepreneur"));
                 if (storedEnp) {
                     const id = storedEnp._id || storedEnp.id;
-                    const res = await axios.get(`http://localhost:8000/entrepreneur/${id}`);
+                    const res = await axios.get(`https://pitch-for-profit-backend.onrender.com/entrepreneur/${id}`);
                     setEntrepreneur(res.data);
                     setFormData(res.data);
                     localStorage.setItem("entrepreneur", JSON.stringify(res.data));
@@ -52,7 +52,7 @@ const EntrepreneurProfile = () => {
                 }
             });
 
-            const res = await axios.put(`http://localhost:8000/entrepreneur/${id}`, data);
+            const res = await axios.put(`https://pitch-for-profit-backend.onrender.com/entrepreneur/${id}`, data);
             setEntrepreneur(res.data.entrepreneur);
             localStorage.setItem("entrepreneur", JSON.stringify(res.data.entrepreneur));
             setIsEditing(false);

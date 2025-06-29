@@ -11,7 +11,7 @@ const ViewNews = () => {
 
   const fetchNews = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/add-news");
+      const res = await axios.get("https://pitch-for-profit-backend.onrender.com/api/add-news");
       setNewsList(res.data);
     } catch (err) {
       console.error("Error fetching news:", err);

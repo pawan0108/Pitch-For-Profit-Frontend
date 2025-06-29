@@ -18,19 +18,19 @@ function InvestorManage() {
     }, [searchTerm, investors]);
 
     const fetchInvestors = async () => {
-        const res = await axios.get('http://localhost:8000/investor/all');
+        const res = await axios.get('https://pitch-for-profit-backend.onrender.com/investor/all');
         setInvestors(res.data);
     };
 
     const updateStatus = async (id, isApproved, isActive) => {
-        await axios.patch(`http://localhost:8000/investor/status/${id}`, { isApproved, isActive });
+        await axios.patch(`https://pitch-for-profit-backend.onrender.com/investor/status/${id}`, { isApproved, isActive });
         fetchInvestors();
     };
 
     const deleteInvestor = async (id) => {
         const confirmDelete = window.confirm("Are you sure you want to delete this investor?");
         if (confirmDelete) {
-            await axios.delete(`http://localhost:8000/investor/${id}`);
+            await axios.delete(`https://pitch-for-profit-backend.onrender.com/investor/${id}`);
             fetchInvestors();
         }
     };

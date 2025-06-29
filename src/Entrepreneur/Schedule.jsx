@@ -25,7 +25,7 @@ export default function Schedule() {
 
   const fetchMeetings = async (email) => {
     try {
-      const url = `http://localhost:8000/api/meeting-requests?enpemailaddress=${encodeURIComponent(email)}`;
+      const url = `https://pitch-for-profit-backend.onrender.com/api/meeting-requests?enpemailaddress=${encodeURIComponent(email)}`;
       const res = await fetch(url);
       const data = await res.json();
       const sorted = [...data].sort((a, b) => new Date(b.meetingdate) - new Date(a.meetingdate));
@@ -81,7 +81,7 @@ export default function Schedule() {
     if (!window.confirm('Are you sure you want to delete this meeting?')) return;
 
     try {
-      const res = await fetch(`http://localhost:8000/api/meeting-request/${id}`, {
+      const res = await fetch(`https://pitch-for-profit-backend.onrender.com/api/meeting-request/${id}`, {
         method: 'DELETE',
       });
 

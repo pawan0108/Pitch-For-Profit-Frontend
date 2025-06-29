@@ -23,7 +23,7 @@ function EntrepreneurEdit() {
   });
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/enp/${id}`)
+    axios.get(`https://pitch-for-profit-backend.onrender.com/enp/${id}`)
       .then((res) => {
         const data = res.data;
         data.regdate = data.regdate?.split('T')[0]; // Format date
@@ -40,7 +40,7 @@ function EntrepreneurEdit() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8000/enp/${id}`, form);
+      await axios.put(`https://pitch-for-profit-backend.onrender.com/enp/${id}`, form);
       alert("Entrepreneur updated successfully!");
       navigate("/Admin/view-enp");
     } catch (err) {

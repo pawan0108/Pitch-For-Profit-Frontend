@@ -32,7 +32,7 @@ export default function EntrepreneurMeetingForm() {
     }
 
     try {
-      const response = await fetch(`http://localhost:8000/investor/search?q=${encodeURIComponent(q)}`);
+      const response = await fetch(`https://pitch-for-profit-backend.onrender.com/investor/search?q=${encodeURIComponent(q)}`);
 
       if (!response.ok) throw new Error('Search failed');
       const data = await response.json();
@@ -56,7 +56,7 @@ export default function EntrepreneurMeetingForm() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8000/api/meeting-request', {
+      const response = await fetch('https://pitch-for-profit-backend.onrender.com/api/meeting-request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
@@ -87,7 +87,7 @@ export default function EntrepreneurMeetingForm() {
     if (!form.enpemailaddress) return;
     try {
       const response = await fetch(
-        `http://localhost:8000/api/meeting-requests?enpemailaddress=${encodeURIComponent(form.enpemailaddress)}`
+        `https://pitch-for-profit-backend.onrender.com/api/meeting-requests?enpemailaddress=${encodeURIComponent(form.enpemailaddress)}`
       );
       const data = await response.json();
       setRequests(data);

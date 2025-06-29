@@ -15,7 +15,7 @@ const InvestorProfileView = () => {
                 const storedInvestor = JSON.parse(localStorage.getItem("investor"));
                 if (storedInvestor) {
                     const id = storedInvestor._id || storedInvestor.id;
-                    const res = await axios.get(`http://localhost:8000/investor/${id}`);
+                    const res = await axios.get(`https://pitch-for-profit-backend.onrender.com/investor/${id}`);
                     setInvestor(res.data);
                     localStorage.setItem("investor", JSON.stringify(res.data));
                 } else {

@@ -9,10 +9,10 @@ const ShowPitchesAdmin = () => {
     useEffect(() => {
         const fetchPitches = async () => {
             try {
-                const res = await axios.get('http://localhost:8000/pitches');
+                const res = await axios.get('https://pitch-for-profit-backend.onrender.com/pitches');
                 const pitchesWithCounts = await Promise.all(
                     res.data.map(async (pitch) => {
-                        const countRes = await axios.get(`http://localhost:8000/pitches/count/${pitch._id}`);
+                        const countRes = await axios.get(`https://pitch-for-profit-backend.onrender.com/pitches/count/${pitch._id}`);
                         return { ...pitch, raiseCount: countRes.data.count };
                     })
                 );
@@ -52,7 +52,7 @@ const ShowPitchesAdmin = () => {
                                     <p><strong>Equity Offered:</strong> {pitch.equity}%</p>
                                     <p><strong>Investors Interested:</strong> {pitch.raiseCount}</p>
                                     {pitch.filePath && (
-                                        <p><a href={`http://localhost:8000/${pitch.filePath}`} target="_blank" rel="noopener noreferrer">📄 View Pitch File</a></p>
+                                        <p><a href={`https://pitch-for-profit-backend.onrender.com/${pitch.filePath}`} target="_blank" rel="noopener noreferrer">📄 View Pitch File</a></p>
                                     )}
                                     <Link
                                         className="btn btn-outline-primary w-100"
