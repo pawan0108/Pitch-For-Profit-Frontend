@@ -1,220 +1,146 @@
-/* Base Navbar Styles */
+/* Base Styles */
 .custom-navbar {
-  background-color: #d0f0c0;
-  padding: 0.75rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1030;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Container Fixes */
-.container-fluid {
-  padding: 0 15px !important;
-  margin: 0 auto !important;
-  max-width: 100%;
-}
-
-/* Logo Styles */
-.logo-img {
-  height: 55px;
-  transition: all 0.3s ease;
-}
-
-/* Nav Link Styles */
-.nav-link {
-  color: #333;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.5rem 1rem !important;
-  position: relative;
-}
-
-.nav-link:hover {
-  color: #1d5e20;
-}
-
-/* Active Link Underline */
-.nav-link:not(.dropdown-toggle)::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 1rem;
-  bottom: 0.25rem;
-  background-color: #2e7d32;
-  transition: width 0.3s ease;
-}
-
-.nav-link:not(.dropdown-toggle):hover::after,
-.nav-link:not(.dropdown-toggle).active::after {
-  width: calc(100% - 2rem);
-}
-
-/* Dropdown Menu */
-.dropdown-menu {
-  min-width: 200px;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  animation: fadeIn 0.3s ease;
-}
-
-.dropdown-item {
-  padding: 0.5rem 1rem;
-}
-
-.dropdown-item:hover {
-  background-color: #f8f9fa;
-  color: #1d5e20;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Dark Mode Styles */
-.custom-navbar.dark-navbar {
-  background-color: #1e1e1e;
-}
-
-.custom-navbar.dark-navbar .nav-link,
-.custom-navbar.dark-navbar .dropdown-item {
-  color: #f0f0f0;
-}
-
-.custom-navbar.dark-navbar .nav-link:hover,
-.custom-navbar.dark-navbar .dropdown-item:hover {
-  color: #81c784;
-}
-
-.custom-navbar.dark-navbar .dropdown-menu {
-  background-color: #2d2d2d;
-}
-
-.custom-navbar.dark-navbar .dropdown-item:hover {
-  background-color: #3d3d3d;
-}
-
-/* Scroll Effect */
-.custom-navbar.shrink {
-  padding: 0.5rem 0;
-}
-
-.custom-navbar.shrink .logo-img {
-  height: 45px;
-}
-
-/* Mobile Responsive Styles */
-@media (max-width: 991.98px) {
-  .navbar-collapse {
-    background-color: #d0f0c0;
-    margin: 0.5rem -15px 0 -15px;
-    padding: 1rem 15px;
-    width: calc(100% + 30px);
-    border-top: 1px solid rgba(0,0,0,0.1);
-  }
-
-  .dark-navbar .navbar-collapse {
-    background-color: #1e1e1e;
-    border-top-color: rgba(255,255,255,0.1);
-  }
-
-  .navbar-nav {
-    gap: 0.5rem;
-  }
-
-  .nav-item {
-    margin-bottom: 0.25rem;
-  }
-
-  .dropdown-menu {
-    margin-left: 1rem;
-    width: calc(100% - 2rem);
-    box-shadow: none;
-    border-left: 2px solid #2e7d32;
-  }
-
-  /* Add these to your existing Navbar.css */
-
-/* Toggle Button Positioning */
-.navbar-toggler {
-  margin-left: auto !important;
-  order: 2;
-}
-
-.navbar-brand {
-  order: 1;
-}
-
-/* Mobile View Specific Fixes */
-@media (max-width: 991.98px) {
-  .container-fluid {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
+    background-color: #d0f0c0; /* Light green */
+    padding: 0.75rem 1rem;
+    transition: background-color 0.3s ease;
+    height: 150px;
   }
   
-  .navbar-brand {
-    flex: 1;
-  }
-  
-  .navbar-toggler {
-    flex: 0;
-  }
-}
-.custom-navbar.shrink .logo-img {
-    height: 145px;
-  }
-}
-
-/* Small Devices */
-@media (max-width: 575.98px) {
   .logo-img {
-    height: 45px;
-  }
-
-  .custom-navbar.shrink .logo-img {
-    height: 105px;
-  }
-
-  .container-fluid {
-    padding: 0 12px !important;
-  }
-
-  /* Add these to your existing Navbar.css */
-
-/* Toggle Button Positioning */
-.navbar-toggler {
-  margin-left: auto !important;
-  order: 2;
-}
-
-.navbar-brand {
-  order: 1;
-}
-
-/* Mobile View Specific Fixes */
-@media (max-width: 991.98px) {
-  .container-fluid {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
+    height: 55px;
+    width: auto;
   }
   
-  .navbar-brand {
-    flex: 1;
+  .navbar-nav .nav-link {
+    color: #333;
+    transition: color 0.2s;
   }
   
-  .navbar-toggler {
-    flex: 0;
+  .navbar-nav .nav-link:hover {
+    color: #1d5e20;
   }
+  
+  /* Dropdown fixes */
+  .dropdown-menu {
+    min-width: 200px;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Dark Mode */
+  /* Scoped Dark Mode - Only for Navbar */
+.custom-navbar.dark-navbar {
+    background-color: #1e1e1e;
+  }
+  
+  .custom-navbar.dark-navbar .nav-link,
+  .custom-navbar.dark-navbar .dropdown-item {
+    color: #f0f0f0;
+  }
+  
+  .custom-navbar.dark-navbar .nav-link:hover,
+  .custom-navbar.dark-navbar .dropdown-item:hover {
+    color: #81c784;
+  }
+  
+  
+  /* Responsive tweaks */
+  @media (max-width: 991px) {
+    .navbar-nav {
+      margin-top: 1rem;
+    }
+  
+    .navbar-nav .nav-item {
+      margin-bottom: 0.5rem;
+    }
+  
+    .logo-img {
+      height: 45px;
+    }
+
+    .homenav{
+      margin-top: -300px;
+      width: 60px;
+
+      margin-left: 600px;
+   
+    }
+  }
+
+ /* Apply underline only to direct nav links, not dropdown toggles */
+.navbar-nav .nav-link:not(.dropdown-toggle) {
+    position: relative;
+  
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link:not(.dropdown-toggle)::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: -2px;
+    background-color: #2e7d32; /* Green underline */
+    transition: width 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link:not(.dropdown-toggle):hover::after,
+  .navbar-nav .nav-link:not(.dropdown-toggle).active::after {
+    width: 100%;
+  }
+
+
+/* Fix the navbar to the top */
+.custom-navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030; /* higher than default elements */
+    background-color: #d0f0c0; /* already applied */
+    padding: 0.75rem 1rem;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* optional shadow */
+  }
+  
+  /* Add padding to body or wrapper to offset navbar height */
+  /* .page-content {
+    padding-top: 80px; /* Adjust if navbar height changes 
+  }
+   */
+
+   .custom-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background-color: #d0f0c0;
+    transition: all 0.3s ease;
+    padding: 1rem 1rem; /* default padding */
+  }
+  
+
+  /* Default size */
+.custom-navbar {
+  transition: all 0.3s ease;
+  padding: 20px 0;
+}
+
+/* Shrunk size after scroll */
+.custom-navbar.shrink {
+  padding: 10px 0;
+
 }
 
 .logo-img {
-  height: 5px;
-  width: 350px !important;
-}
+  height: 60px;
+  transition: height 0.3s ease;
 }
 
+.custom-navbar.shrink .logo-img {
+  height: 150px; /* logo shrinks too */
+}
