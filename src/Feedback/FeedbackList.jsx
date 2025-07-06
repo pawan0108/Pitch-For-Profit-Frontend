@@ -105,7 +105,7 @@ const FeedbackList = () => {
   )}
 
   <div className='mx-auto d-flex justify-content-center mt-3'>
-    <Link className='fs-1' to=''>See More</Link>
+    {/* <Link className='fs-1' to=''>See More</Link> */}
   </div>
 </div>
 
