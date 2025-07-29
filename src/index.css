@@ -9,6 +9,9 @@
   background: #c0f3c8;
 }
 
+
+  
+
 .nav-dropdown li .dropdown-item:hover{
   background-color: #259e2b;
   border-radius: 8px;
@@ -29,6 +32,22 @@
   width: 400px;
   height: 400px;
 } */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 1rem; /* ~16px base padding for body */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  background-color: #f9f9f9;
+  color: #222;
+}
+
 
 @media (max-width: 991px) {
   .container-fluid .profile-img{
