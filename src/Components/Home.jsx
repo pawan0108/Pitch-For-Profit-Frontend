@@ -15,8 +15,6 @@ import StatsSection from "./StatsSection";
 import NewsSection from "./NewsSection";
 import ContactForm from "./ContactForm";
 import FeedbackList from "../Feedback/FeedbackList";
-import '../assets/css/Home.css';
-
 
 import ViewNews from "./ViewNews";
 import AllFeedbacks from "../Feedback/AllFeedbacks";
@@ -27,11 +25,11 @@ function Home() {
       <div className="row">
         <Slider />
         <Outlet />
-        <div className="custom-container">
-          <div className="hero-section">
+        <div className="custom-container ">
+          <div className="hero-section ">
             <HeroSection />
           </div>
-          <div className="news-section">
+          <div className="news-section ">
             <ViewNews />
           </div>
         </div>
