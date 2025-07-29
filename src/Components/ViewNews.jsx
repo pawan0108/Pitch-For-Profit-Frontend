@@ -19,7 +19,7 @@ const ViewNews = () => {
   };
 
   return (
-    <div className="news-page">
+    <div className="news-page " >
       <div className="marquee-outer">
         <div className="marquee-inner">
           {[...newsList, ...newsList].map((news, index) => (

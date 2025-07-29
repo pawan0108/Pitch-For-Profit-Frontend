@@ -1,19 +1,19 @@
 .custom-container {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  margin: 20px 0;
 }
 
 /* Hero Section - 75% */
 .hero-section {
   flex: 3;
-  padding: 10px;
 }
 
 /* News Section - 25% */
 .news-section {
   flex: 1;
-  padding: 10px;
+  height: 550px;
+  overflow: hidden;
 }
 
 /* Media query for small screens (mobile) */

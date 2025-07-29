@@ -18,11 +18,12 @@ import FeedbackList from "../Feedback/FeedbackList";
 
 import ViewNews from "./ViewNews";
 import AllFeedbacks from "../Feedback/AllFeedbacks";
+import '../assets/css/Home.css'
 
 function Home() {
   return (
     <>
-      <div className="row">
+      <div className="row d-flex justify-content-center align-items-center">
         <Slider />
         <Outlet />
         <div className="custom-container ">

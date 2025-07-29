@@ -9,16 +9,43 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 1rem 0;
 }
-
+.custom-toggler {
+  padding: 0.25rem 0.5rem; /* smaller padding */
+  font-size: 0.8rem; /* smaller icon */
+  line-height: 1;
+  width: 30px; /* set custom width */
+  height: 30px; /* set custom height */
+}
 /* Logo Image */
 .logo-img {
-  height: 60px;
-  width: auto;
-  transition: all 0.3s ease;
+  height: 80px !important; /* Force height */
+  width: auto !important; /* Keep natural width */
+  object-fit: contain; /* Prevent cropping or stretching */
+  display: block;
+}
+@media (max-width: 768px) {
+  .logo-img {
+    height: 50px !important; /* Force height */
+    width: auto !important; /* Keep natural width */
+    object-fit: contain; /* Prevent cropping or stretching */
+    display: block;
+  }
+
+   .partial-collapse {
+    max-width: 400px;
+    background-color: #fff; /* Optional */
+    margin-left: auto;
+    margin-right: 0;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 /* Nav Links */
 .navbar-nav .nav-link {
+    white-space: nowrap; /* Prevents "About Us" from breaking to a new line */
+
   color: #333;
   transition: color 0.2s;
   padding: 0.5rem 1rem;
@@ -51,12 +78,18 @@
   min-width: 200px;
   animation: fadeIn 0.3s ease-in-out;
   border: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Dark Mode Styles */
@@ -93,7 +126,7 @@
   .custom-navbar {
     padding: 0.75rem 0;
   }
-  
+
   .logo-img {
     height: 50px;
   }
@@ -106,13 +139,13 @@
 
   .navbar-nav {
     padding: 1rem;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 0.5rem;
     margin-top: 1rem;
   }
 
   .dark-navbar .navbar-nav {
-    background: rgba(30,30,30,0.95);
+    background: rgba(30, 30, 30, 0.95);
   }
 
   .navbar-nav .nav-item {
@@ -130,11 +163,11 @@
     padding: 0.5rem 1rem;
     color: inherit;
   }
-  
+
   .dark-navbar .dropdown-item {
     color: #f0f0f0;
   }
-  
+
   /* Make dark mode button full width on mobile */
   .nav-item .btn {
     margin-left: 0 !important;
