@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
-// import dsr from '../assets/img/logo1.png';
+import dsr from '../assets/img/logo1.png';
 import '../assets/css/Navbar.css';
 
 function Navbar() {
@@ -10,6 +10,7 @@ function Navbar() {
 
   const toggleDarkMode = () => setDarkMode(prev => !prev);
 
+  // Close navbar on mobile when link is clicked
   const closeNavbar = () => {
     if (navbarCollapseRef.current && window.innerWidth < 992) {
       const bsCollapse = new window.bootstrap.Collapse(navbarCollapseRef.current, {
@@ -33,13 +34,15 @@ function Navbar() {
     <nav className={`navbar navbar-expand-lg custom-navbar ${darkMode ? 'dark-navbar' : ''} ${isScrolled ? 'shrink' : ''}`}>
       <div className="container-fluid d-flex justify-content-between align-items-center px-3 px-lg-4">
         {/* Brand/Logo */}
-        <NavLink
+       <div>
+         <NavLink
           to="/"
           className="navbar-brand d-flex align-items-center"
           onClick={closeNavbar}
         >
-          {/* <img src={dsr} alt="Logo" className="logo-img" /> */}
+          <img src={dsr} alt="Logo" className="logo-img" />
         </NavLink>
+       </div>
 
         {/* Mobile Toggle Button */}
         <button
@@ -102,8 +105,17 @@ function Navbar() {
                 Login
               </NavLink>
             </li>
+             <li className="nav-item">
+              <NavLink 
+                to="/feedbacks" 
+                className={({ isActive }) => `nav-link fs-5 ${isActive ? 'active' : ''}`}
+                onClick={closeNavbar}
+              >
+                Feedback
+              </NavLink>
+            </li>
             
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a 
                 href="#feedback-section" 
                 className="nav-link fs-5"
@@ -111,7 +123,7 @@ function Navbar() {
               >
                 Feedbacks
               </a>
-            </li>
+            </li> */}
             
             <li className="nav-item">
               <NavLink 

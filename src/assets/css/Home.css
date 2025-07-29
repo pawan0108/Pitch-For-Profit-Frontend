@@ -1,0 +1,29 @@
+.custom-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 730px;
+}
+
+.hero-section {
+  flex-shrink: 0;
+}
+
+.news-section {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .custom-container {
+    flex-direction: row;
+  }
+
+  .hero-section {
+    width: 75%;
+  }
+
+  .news-section {
+    width: 25%;
+    max-height: 730px; /* optional: keeps consistent height */
+  }
+}

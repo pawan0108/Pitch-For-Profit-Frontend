@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Card, Spinner, Row, Col } from 'react-bootstrap';
-import { FaStar } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import '../assets/css/FeedbackList.css'; // Use the updated CSS
-import defaultImg from '../assets/img/admin/admin.png';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Card, Spinner, Row, Col, Container, Button } from "react-bootstrap";
+import { FaStar } from "react-icons/fa";
+import defaultImg from "../assets/img/admin/admin.png";
 
 const AllFeedbacks = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [visibleCount, setVisibleCount] = useState(8);
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get('https://pitch-for-profit-backend.onrender.com/feedback');
-        console.log(response.data.feedback);
+        const response = await axios.get(
+          "https://pitch-for-profit-backend.onrender.com/feedback"
+        );
         setFeedbacks(response.data.feedback || []);
       } catch (error) {
-        console.error('Error fetching feedbacks:', error);
+        console.error("Error fetching feedbacks:", error);
       } finally {
         setLoading(false);
       }
@@ -26,28 +26,41 @@ const AllFeedbacks = () => {
     fetchFeedbacks();
   }, []);
 
+  const loadMore = () => {
+    setVisibleCount((prev) => prev + 8);
+  };
+
   const renderFeedbacks = () =>
-    feedbacks.map((fb) => {
+    feedbacks.slice(0, visibleCount).map((fb) => {
       const user = fb.user || {};
       const date = fb.createdAt ? new Date(fb.createdAt) : null;
 
-      console.log(date?.toLocaleString());
-      
-
       return (
-        <Col key={fb._id} xs={12} sm={6} md={4} lg={3} className="mb-4">
-          <Card className="animated-card shadow-sm border-0 h-100">
-            <Card.Body>
+        <Col key={fb._id} xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex">
+          <Card
+            style={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Body style={{ flex: "1 1 auto", display: "flex", flexDirection: "column" }}>
               <div className="d-flex align-items-center mb-3">
                 <img
                   src={user.profilePic || defaultImg}
                   alt={user.name || "User"}
-                  className="rounded-circle me-2"
-                  style={{ width: 50, height: 50, objectFit: 'cover' }}
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    marginRight: "1rem",
+                  }}
                 />
                 <div>
-                  <Card.Title className="mb-0">{user.name || "Unknown User"}</Card.Title>
-                  <Card.Text className="text-muted">{fb.userType}</Card.Text>
+                  <h6 className="mb-0">{user.name || "Unknown User"}</h6>
+                  <small className="text-muted">{fb.userType}</small>
                 </div>
               </div>
 
@@ -55,15 +68,16 @@ const AllFeedbacks = () => {
                 {[...Array(5)].map((_, i) => (
                   <FaStar
                     key={i}
-                    color={i < fb.rating ? '#ffc107' : '#e4e5e9'}
-                    size={16}
+                    style={{ color: i < fb.rating ? "#ffc107" : "#e4e5e9" }}
                   />
                 ))}
               </div>
 
-              <Card.Text className="text-dark">{fb.message}</Card.Text>
-              <small className="text-muted">Posted on: {date?.toLocaleDateString()}</small>
+              <p style={{ flexGrow: 1 }}>{fb.message}</p>
 
+              <small className="text-muted mt-auto">
+                Posted on: {date?.toLocaleDateString()}
+              </small>
             </Card.Body>
           </Card>
         </Col>
@@ -71,24 +85,28 @@ const AllFeedbacks = () => {
     });
 
   return (
-    <div className="container my-5">
-      <h3 className="text-center mb-4">🌟 All User Feedback</h3>
+    <div className="py-5 bg-light">
+      <Container>
+        <h2 className="text-center mb-5">🌟 User Testimonials</h2>
 
-      {loading ? (
-        <div className="text-center">
-          <Spinner animation="border" variant="primary" />
-        </div>
-      ) : feedbacks.length === 0 ? (
-        <p className="text-center">No feedback submitted yet.</p>
-      ) : (
-        <Row>{renderFeedbacks()}</Row>
-      )}
+        {loading ? (
+          <div className="text-center">
+            <Spinner animation="border" />
+          </div>
+        ) : feedbacks.length === 0 ? (
+          <p className="text-center text-muted">No feedback submitted yet.</p>
+        ) : (
+          <>
+            <Row>{renderFeedbacks()}</Row>
 
-      <div className="d-flex justify-content-center mt-4">
-        <Link className="btn btn-outline-primary" to="">
-          See More
-        </Link>
-      </div>
+            {visibleCount < feedbacks.length && (
+              <div className="text-center mt-4">
+                <Button onClick={loadMore}>Load More Testimonials</Button>
+              </div>
+            )}
+          </>
+        )}
+      </Container>
     </div>
   );
 };

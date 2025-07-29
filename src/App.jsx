@@ -39,6 +39,8 @@ import Enquiries from './Admin/Enquiries';
 import ShowPitchesAdmin from './Entrepreneur/ShowPitchesAdmin';
 import ShowAllMeetigs from './Admin/ShowAllMeetigs';
 import AdminFeedbackViewer from './Admin/AdminFeedbackViewer';
+import AllFeedbacks from './Feedback/AllFeedbacks';
+
 
 // import SubscriptionModal from './Subscription/SubscriptionModal';
 
@@ -57,6 +59,8 @@ function App() {
           <Route path='view-enp' element={<EntrepreneurView />} />
           <Route path='/About' element={<AboutUs />} />
           {/* <Route path='/InvestorProfile' element={<InvestorProfile />} /> */}
+          <Route path="/feedbacks" element={<AllFeedbacks />} />
+
         </Route>
 
         {/* Admin Layout */}
